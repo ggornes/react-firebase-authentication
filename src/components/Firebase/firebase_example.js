@@ -1,4 +1,6 @@
-import * as firebase from "firebase";
+// import * as Firebase from "firebase";
+import app from 'firebase/app';
+import 'firebase/auth';
 
 const config = {
     apiKey: "",
@@ -11,6 +13,12 @@ const config = {
   };
 
 
-firebase.initializeApp(config);
+class Firebase {
+    constructor() {
+        app.initializeApp(config);
 
-export default firebase;
+        this.auth = app.auth();
+    }
+}
+
+export default Firebase;
